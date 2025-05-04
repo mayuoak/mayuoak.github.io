@@ -1,0 +1,272 @@
+/* Modern Dark Theme */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #2d3436;
+    --secondary-color: #0984e3;
+    --accent-color: #00b894;
+    --text-color: #dfe6e9;
+    --text-secondary: #b2bec3;
+    --background-color: #1a1a1a;
+    --card-background: #2d3436;
+    --border-color: #3d3d3d;
+    --hover-color: #0984e3;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+#wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+#paper {
+    background-color: var(--card-background);
+    border-radius: 10px;
+    box-shadow: 0 4px 20px var(--shadow-color);
+    padding: 30px;
+    margin: 20px 0;
+}
+
+.entry {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: var(--primary-color);
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.entry:hover {
+    transform: translateY(-2px);
+}
+
+h1, h2, h3 {
+    color: var(--text-color);
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-size: 2.5em;
+    color: var(--secondary-color);
+}
+
+h2 {
+    font-size: 1.8em;
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 10px;
+}
+
+h3 {
+    font-size: 1.3em;
+    color: var(--accent-color);
+}
+
+.self {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.self .name {
+    margin-bottom: 10px;
+}
+
+.self .name span {
+    color: var(--accent-color);
+    font-size: 0.8em;
+    display: block;
+    margin-top: 5px;
+}
+
+.self ul {
+    list-style: none;
+    margin-top: 15px;
+}
+
+.self ul li {
+    margin: 5px 0;
+    color: var(--text-secondary);
+}
+
+.portrait {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid var(--secondary-color);
+    margin: 0 auto 20px;
+    display: block;
+    object-fit: cover;
+}
+
+.social {
+    margin-top: 20px;
+}
+
+.social ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social ul li a {
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.social ul li a:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-3px);
+}
+
+.social ul li a img {
+    width: 20px;
+    height: 20px;
+    filter: invert(1);
+}
+
+.content {
+    margin-bottom: 20px;
+}
+
+.info {
+    list-style: none;
+    padding-left: 20px;
+}
+
+.info li {
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.info li:before {
+    content: "•";
+    color: var(--accent-color);
+    position: absolute;
+    left: 0;
+}
+
+.skills {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skills li {
+    background-color: var(--primary-color);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.skills li:hover {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    transform: translateY(-2px);
+}
+
+#message {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+#top-link {
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+#top-link:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-3px);
+}
+
+/* Print styles */
+@media print {
+    body {
+        background-color: white;
+        color: black;
+    }
+
+    #paper {
+        box-shadow: none;
+        padding: 0;
+    }
+
+    .entry {
+        break-inside: avoid;
+    }
+
+    .social {
+        display: none;
+    }
+
+    #message {
+        display: none;
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    #wrapper {
+        padding: 10px;
+    }
+
+    #paper {
+        padding: 15px;
+    }
+
+    .entry {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    h3 {
+        font-size: 1.2em;
+    }
+
+    .portrait {
+        width: 120px;
+        height: 120px;
+    }
+} 
