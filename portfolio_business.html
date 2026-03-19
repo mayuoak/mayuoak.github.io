@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mayuresh Oak — AI Solutions Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf9f6;
+    --surface: #ffffff;
+    --surface2: #f4f2ed;
+    --border: #e8e4dc;
+    --text: #1a1814;
+    --text-muted: #6b6558;
+    --text-dim: #a8a096;
+    --accent: #1d3a5c;
+    --accent-light: #e8eef5;
+    --gold: #b5863a;
+    --gold-light: #fdf5e8;
+    --green: #2d5a3d;
+    --green-light: #edf5f0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 15px;
+  }
+
+  .container { max-width: 840px; margin: 0 auto; padding: 0 2.5rem; }
+
+  /* Header */
+  header {
+    padding: 4rem 0 3rem;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+
+  .intro-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-dim);
+    margin-bottom: 1rem;
+  }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.2rem;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    line-height: 1.1;
+    margin-bottom: 0.3rem;
+  }
+
+  .title-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-style: italic;
+    color: var(--text-muted);
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+  }
+
+  .lead {
+    font-size: 1.05rem;
+    font-weight: 300;
+    color: var(--text-muted);
+    max-width: 580px;
+    line-height: 1.7;
+  }
+
+  /* Value props */
+  .value-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .value-item { padding: 0; }
+
+  .value-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--surface2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.7rem;
+    font-size: 14px;
+  }
+
+  .value-title {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .value-desc {
+    font-size: 12.5px;
+    color: var(--text-muted);
+    font-weight: 300;
+    line-height: 1.55;
+  }
+
+  /* Section headers */
+  .section-header {
+    padding: 2.5rem 0 1.2rem;
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--text);
+  }
+
+  .section-line { flex: 1; height: 1px; background: var(--border); }
+
+  /* Project cards — business version */
+  .project-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem 2.2rem;
+    margin-bottom: 1.2rem;
+    position: relative;
+  }
+
+  .card-accent {
+    position: absolute;
+    top: 0; left: 2.2rem;
+    width: 32px;
+    height: 3px;
+    border-radius: 0 0 3px 3px;
+  }
+
+  .accent-navy { background: var(--accent); }
+  .accent-gold { background: var(--gold); }
+  .accent-green { background: var(--green); }
+
+  .card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem;
+    font-weight: 400;
+    color: var(--text);
+    line-height: 1.2;
+  }
+
+  .card-client {
+    font-size: 12px;
+    color: var(--text-dim);
+    margin-top: 3px;
+    font-weight: 300;
+  }
+
+  .impact-badge {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 4px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .badge-navy { background: var(--accent-light); color: var(--accent); }
+  .badge-gold { background: var(--gold-light); color: var(--gold); }
+  .badge-green { background: var(--green-light); color: var(--green); }
+
+  /* The business "what this does" */
+  .what-box {
+    background: var(--surface2);
+    border-radius: 8px;
+    padding: 1rem 1.2rem;
+    margin-bottom: 1.1rem;
+  }
+
+  .what-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-dim);
+    margin-bottom: 5px;
+    font-weight: 500;
+  }
+
+  .what-text {
+    font-size: 14px;
+    color: var(--text);
+    font-weight: 400;
+    line-height: 1.6;
+  }
+
+  /* Outcomes */
+  .outcomes { margin-top: 1rem; }
+  .outcomes-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-dim);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+
+  .outcomes-list { display: flex; flex-direction: column; gap: 6px; }
+
+  .outcome-item {
+    display: flex;
+    gap: 10px;
+    font-size: 13.5px;
+    color: var(--text-muted);
+    font-weight: 300;
+    align-items: flex-start;
+  }
+
+  .outcome-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--border);
+    flex-shrink: 0;
+    margin-top: 7px;
+  }
+
+  .dot-navy { background: var(--accent); }
+  .dot-gold { background: var(--gold); }
+  .dot-green { background: var(--green); }
+
+  /* Expertise */
+  .expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  .expertise-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.3rem 1.4rem;
+  }
+
+  .exp-title {
+    font-weight: 500;
+    font-size: 13.5px;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+
+  .exp-desc {
+    font-size: 12.5px;
+    color: var(--text-muted);
+    font-weight: 300;
+    line-height: 1.55;
+  }
+
+  /* Testimonial area */
+  .testimonial {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem 2.2rem;
+    margin: 0.5rem 0 2rem;
+    position: relative;
+  }
+
+  .testimonial::before {
+    content: '\201C';
+    position: absolute;
+    top: 0.5rem; left: 1.8rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5rem;
+    color: var(--border);
+    line-height: 1;
+  }
+
+  .testimonial-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--text-muted);
+    font-weight: 300;
+    line-height: 1.6;
+    padding-top: 1rem;
+  }
+
+  /* CTA */
+  .cta-section {
+    border-top: 1px solid var(--border);
+    padding: 3rem 0;
+    text-align: center;
+  }
+
+  .cta-eyebrow {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-dim);
+    margin-bottom: 0.8rem;
+  }
+
+  .cta-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--text);
+    margin-bottom: 0.7rem;
+    line-height: 1.2;
+  }
+
+  .cta-sub {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--text-muted);
+    margin-bottom: 1.8rem;
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 400;
+    padding: 0.75rem 2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 1.5rem 0;
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-dim);
+    font-weight: 300;
+  }
+
+  @media (max-width: 600px) {
+    h1 { font-size: 2.2rem; }
+    .value-row { grid-template-columns: 1fr; gap: 1rem; }
+    .expertise-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="intro-label">AI Solutions Portfolio</div>
+    <h1>Mayuresh Oak</h1>
+    <div class="title-sub">AI Engineer & Strategist</div>
+    <p class="lead">I help businesses eliminate inefficiencies and unlock new capabilities by building AI that works in the real world — not just in demos. From voice assistants to procurement automation, I've delivered AI at enterprise scale.</p>
+  </header>
+
+  <div class="value-row">
+    <div class="value-item">
+      <div class="value-icon">⚙</div>
+      <div class="value-title">End-to-end delivery</div>
+      <div class="value-desc">From strategy and architecture through to deployment and monitoring — I own the full solution.</div>
+    </div>
+    <div class="value-item">
+      <div class="value-icon">🏢</div>
+      <div class="value-title">Enterprise-proven</div>
+      <div class="value-desc">Delivered for Fortune 500 companies and global brands including Samsung and Unilever.</div>
+    </div>
+    <div class="value-item">
+      <div class="value-icon">📈</div>
+      <div class="value-title">Business-first AI</div>
+      <div class="value-desc">Every project is anchored to measurable outcomes — efficiency gains, cost savings, faster workflows.</div>
+    </div>
+  </div>
+
+  <div class="section-header">
+    <span class="section-title">Selected projects</span>
+    <div class="section-line"></div>
+  </div>
+
+  <!-- Project 1 -->
+  <div class="project-card">
+    <div class="card-accent accent-navy"></div>
+    <div class="card-top">
+      <div>
+        <div class="card-title">AI Voice Assistant</div>
+        <div class="card-client">Samsung</div>
+      </div>
+      <span class="impact-badge badge-navy">Voice AI · Lead Engineer</span>
+    </div>
+    <div class="what-box">
+      <div class="what-label">What this does</div>
+      <div class="what-text">A smart voice assistant that understands what users say, interprets their intent, and responds naturally — even in complex, noisy environments.</div>
+    </div>
+    <div class="outcomes">
+      <div class="outcomes-label">My contribution</div>
+      <div class="outcomes-list">
+        <div class="outcome-item"><div class="outcome-dot dot-navy"></div>Led development of the AI brain that converts speech into understanding — making the assistant accurate and fast</div>
+        <div class="outcome-item"><div class="outcome-dot dot-navy"></div>Built and trained the language models that power natural conversation and task completion</div>
+        <div class="outcome-item"><div class="outcome-dot dot-navy"></div>Customised AI behaviour for Samsung-specific use cases — from device control to content retrieval</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Project 2 -->
+  <div class="project-card">
+    <div class="card-accent accent-navy"></div>
+    <div class="card-top">
+      <div>
+        <div class="card-title">Enterprise Knowledge Agent</div>
+        <div class="card-client">Fortune 500 Company</div>
+      </div>
+      <span class="impact-badge badge-navy">AI Research · Enterprise</span>
+    </div>
+    <div class="what-box">
+      <div class="what-label">What this does</div>
+      <div class="what-text">An AI agent that searches across the company's entire knowledge base — documents, databases, reports — and delivers clear, accurate answers and insights on demand.</div>
+    </div>
+    <div class="outcomes">
+      <div class="outcomes-label">My contribution</div>
+      <div class="outcomes-list">
+        <div class="outcome-item"><div class="outcome-dot dot-navy"></div>Designed the system from scratch — how it finds, retrieves, and synthesises information at scale</div>
+        <div class="outcome-item"><div class="outcome-dot dot-navy"></div>Connected the AI to all major enterprise data sources, securely and reliably</div>
+        <div class="outcome-item"><div class="outcome-dot dot-navy"></div>Built the layer that turns raw data into structured insights ready for business decisions</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Project 3 -->
+  <div class="project-card">
+    <div class="card-accent accent-green"></div>
+    <div class="card-top">
+      <div>
+        <div class="card-title">Multi-Agent AI Orchestrator</div>
+        <div class="card-client">Enterprise Platform</div>
+      </div>
+      <span class="impact-badge badge-green">AI Coordination · Architecture</span>
+    </div>
+    <div class="what-box">
+      <div class="what-label">What this does</div>
+      <div class="what-text">A smart coordinator that receives a complex business question, breaks it into smaller tasks, and assigns each task to the right specialist AI agent — all running simultaneously for faster answers.</div>
+    </div>
+    <div class="outcomes">
+      <div class="outcomes-label">My contribution</div>
+      <div class="outcomes-list">
+        <div class="outcome-item"><div class="outcome-dot dot-green"></div>Designed the "project manager" AI that decomposes complex queries into manageable sub-tasks</div>
+        <div class="outcome-item"><div class="outcome-dot dot-green"></div>Built logic that runs multiple AI agents in parallel — dramatically cutting time to answer</div>
+        <div class="outcome-item"><div class="outcome-dot dot-green"></div>Ensured each agent stays focused on its specialty, preventing overlap and errors</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Project 4 -->
+  <div class="project-card">
+    <div class="card-accent accent-gold"></div>
+    <div class="card-top">
+      <div>
+        <div class="card-title">Logistics Procurement Copilot</div>
+        <div class="card-client">Unilever · Transport Procurement</div>
+      </div>
+      <span class="impact-badge badge-gold">Process Automation · Savings</span>
+    </div>
+    <div class="what-box">
+      <div class="what-label">What this does</div>
+      <div class="what-text">An AI copilot that automates the process of generating transport tender strategies and benchmark reports — work that previously required hours of manual analysis by procurement specialists.</div>
+    </div>
+    <div class="outcomes">
+      <div class="outcomes-label">My contribution</div>
+      <div class="outcomes-list">
+        <div class="outcome-item"><div class="outcome-dot dot-gold"></div>Built the full automation pipeline — from pulling live logistics cost data to generating strategy reports</div>
+        <div class="outcome-item"><div class="outcome-dot dot-gold"></div>Created AI agents that calculate best and worst-case scenarios to guide negotiation decisions</div>
+        <div class="outcome-item"><div class="outcome-dot dot-gold"></div>Delivered ready-to-present PowerPoint reports, reducing analyst prep time significantly</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Project 5 -->
+  <div class="project-card">
+    <div class="card-accent accent-green"></div>
+    <div class="card-top">
+      <div>
+        <div class="card-title">AI Reliability & Monitoring Platform</div>
+        <div class="card-client">Enterprise Internal</div>
+      </div>
+      <span class="impact-badge badge-green">Infrastructure · Quality Assurance</span>
+    </div>
+    <div class="what-box">
+      <div class="what-label">What this does</div>
+      <div class="what-text">A monitoring and testing system that keeps AI agents working correctly in production — catching problems early, flagging quality issues, and ensuring business-critical AI stays reliable.</div>
+    </div>
+    <div class="outcomes">
+      <div class="outcomes-label">My contribution</div>
+      <div class="outcomes-list">
+        <div class="outcome-item"><div class="outcome-dot dot-green"></div>Built comprehensive testing to validate AI agent behaviour before and after every change</div>
+        <div class="outcome-item"><div class="outcome-dot dot-green"></div>Deployed real-time monitoring dashboards to track AI performance and catch issues instantly</div>
+        <div class="outcome-item"><div class="outcome-dot dot-green"></div>Designed automated quality checks that assess accuracy, reliability, and hallucination risks</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-header">
+    <span class="section-title">Areas of expertise</span>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="expertise-grid">
+    <div class="expertise-card">
+      <div class="exp-title">Conversational AI & Voice</div>
+      <div class="exp-desc">Building voice assistants and chatbots that understand natural language and complete real tasks.</div>
+    </div>
+    <div class="expertise-card">
+      <div class="exp-title">Enterprise Knowledge Systems</div>
+      <div class="exp-desc">AI that searches and synthesises your company's data to surface answers on demand.</div>
+    </div>
+    <div class="expertise-card">
+      <div class="exp-title">Workflow Automation</div>
+      <div class="exp-desc">Replacing manual, analyst-heavy processes with AI that produces structured outputs automatically.</div>
+    </div>
+    <div class="expertise-card">
+      <div class="exp-title">Multi-Agent AI Systems</div>
+      <div class="exp-desc">Coordinating multiple AI agents to tackle complex, multi-step problems in parallel.</div>
+    </div>
+    <div class="expertise-card">
+      <div class="exp-title">AI Quality & Reliability</div>
+      <div class="exp-desc">Making sure your AI stays accurate, monitored, and trustworthy as it scales.</div>
+    </div>
+    <div class="expertise-card">
+      <div class="exp-title">Custom LLM Development</div>
+      <div class="exp-desc">Adapting foundation models for specific industries, workflows, and business constraints.</div>
+    </div>
+  </div>
+
+  <div class="cta-section">
+    <div class="cta-eyebrow">Let's work together</div>
+    <div class="cta-headline">Ready to bring AI into your business?</div>
+    <p class="cta-sub">Whether you have a clear project in mind or just a challenge to solve, I'm happy to have a conversation.</p>
+    <a class="cta-btn" href="mailto:your@email.com">Get in touch</a>
+  </div>
+
+  <footer>Mayuresh Oak · AI Engineer & Strategist · © 2025</footer>
+
+</div>
+</body>
+</html>
